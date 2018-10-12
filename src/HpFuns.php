@@ -168,7 +168,7 @@ Class HpFuns
      * @param $formtNum
      * @return string
      */
-    public function getCycleTime($STime,$ETime,$formtNum)
+    public function getCycleTime($STime,$ETime,$formtNum=3)
     {
         if(!$this->isDateTime($STime)){
             throw new \Exception('$STime Is Err Date');
