@@ -170,10 +170,10 @@ Class HpFuns
      */
     public function getCycleTime($STime,$ETime,$formtNum)
     {
-        if(!isDateTime($STime)){
+        if(!$this->isDateTime($STime)){
             throw new \Exception('$STime Is Err Date');
         }
-        if(!isDateTime($ETime)){
+        if(!$this->isDateTime($ETime)){
             throw new \Exception('$ETime Is Err Date');
         }
         setlocale(LC_ALL, array('zh_CN.UTF-8', 'zh_CN.utf8', 'zh_CN'));
