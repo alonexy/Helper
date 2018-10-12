@@ -193,4 +193,43 @@ Class HpFuns
             ->diffForHumans(Carbon::parse($ETime), true, false, $formtNum);
         return $cycle;
     }
+
+    /**
+     * @name 通过代理获取数据
+     * @param string $url
+     * @param string $proxy
+     * @param string $proxyport
+     * @return array
+     */
+    public function getDatasByProxy($url='http://www.baidu.com',$proxy='',$proxyport='')
+    {
+        $CurlOptions = array(
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 10,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_REFERER=>'http://www.baidu.com',
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_USERAGENT=>'Mozilla/5.0 (Windows; U; Windows NT 5.2) AppleWebKit/525.13 (KHTML, like Gecko) Version/3.1 Safari/525.13',
+            CURLOPT_HTTPHEADER => array(
+                "cache-control: no-cache",
+            ),
+        );
+        if($proxy){
+            $CurlOptions[CURLOPT_PROXY] = $proxy;
+            $CurlOptions[CURLOPT_PROXYPORT] = $proxyport;
+        }
+        $curl = curl_init();
+        curl_setopt_array($curl, $CurlOptions);
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
+        if ($err) {
+            return [false,$err];
+        } else {
+            return [true,$response];
+        }
+    }
 }
