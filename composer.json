@@ -1,0 +1,19 @@
+{
+    "name": "alonexy/helper",
+    "description": "辅助方法",
+    "authors": [
+        {
+            "name": "alonexy",
+            "email": "hpl1124@126.com"
+        }
+    ],
+    "require": {
+        "php" : ">=5.6",
+        "nesbot/carbon": "^1.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Alonexy\\Helpers\\" : "src/"
+        }
+    }
+}
