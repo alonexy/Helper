@@ -12,6 +12,7 @@
         "php" : ">=5.6",
         "nesbot/carbon": "^1.9"
     },
+    "minimum-stability":"stable",
     "license": "MIT",
     "autoload": {
         "psr-4": {
