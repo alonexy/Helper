@@ -6,7 +6,7 @@ composer require alonexy/helper -vvv
 
 ```
 
-## Example
+## Examples
 ```
 use Alonexy\Helpers\HpFuns;
 $helper = new HpFuns();
